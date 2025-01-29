@@ -1,3 +1,8 @@
+const common = {
+  jgs7: "JGS7",
+  oxanium: "Oxanium",
+};
+
 const pl = {
   siteTitle: "CEBULACAMP",
   nav: {
@@ -49,6 +54,13 @@ const pl = {
   contact: {
     title: "Kontakt",
     email: "contact@cebula.camp",
+  },
+  credits: {
+    title: "Uznania",
+    usedFonts: "Użyte fonty:",
+    oxanium: common.oxanium,
+    jgs7: common.jgs7,
+    jgs7RemovedGlyphs: "z usuniętymi znakami",
   },
 };
 

@@ -112,6 +112,17 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <section id="credits" className="py-24 bg-background">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold mb-8 tracking-tighter">{t.credits.title}</h2>
+            <div className="text-lg text-muted-foreground">
+              <p>{t.credits.usedFonts}</p>
+              <p><a className="hover:underline" href="https://velvetyne.fr/fonts/jgs-font/">{t.credits.jgs7}</a> {` ${t.credits.jgs7RemovedGlyphs}`}</p>
+              <p><a className="hover:underline" href="https://fonts.google.com/specimen/Oxanium">{t.credits.oxanium}</a></p>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   )
