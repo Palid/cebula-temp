@@ -1,9 +1,9 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import type { translations } from "@/i18n/translations"
+import { Sections, type translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { MoonIcon, SunIcon } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { MobileNav } from "./mobile-nav"
 
 const linksOrder: Array<keyof (typeof translations.pl)["nav"]> = [
@@ -16,29 +16,43 @@ const linksOrder: Array<keyof (typeof translations.pl)["nav"]> = [
   "contact",
 ]
 
-export function Nav({
-  t,
-}: {
-  t: typeof translations.pl
-}) {
+function useTheme(): [theme: "light" | "dark", setTheme: (theme: "light" | "dark") => void] {
+  /* eslint-disable react-hooks/rules-of-hooks */
+  if (typeof window === "undefined") return ["dark", () => { }]
   const [theme, setTheme] = useState<"light" | "dark">("dark")
-  const [activeSection, setActiveSection] = useState<keyof (typeof translations.pl)["nav"]>("about")
+
+  const root = window.document.documentElement
+
+  const changeTheme = useCallback((theme: "light" | "dark") => {
+    root.classList.remove("light", "dark")
+    root.classList.add(theme)
+  }, [root])
 
   useEffect(() => {
     // Determine the user's preferred color scheme
     const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
     setTheme(preferredTheme)
 
-    const root = window.document.documentElement
-    root.classList.remove("light", "dark")
-    root.classList.add(preferredTheme)
-  }, [])
+    changeTheme(preferredTheme)
+  }, [changeTheme])
 
-  useEffect(() => {
-    const root = window.document.documentElement
-    root.classList.remove("light", "dark")
-    root.classList.add(theme)
-  }, [theme])
+  const updateTheme = useCallback((theme: "light" | "dark") => {
+    setTheme(theme)
+    changeTheme(theme)
+  }, [changeTheme, setTheme])
+
+  return [theme, updateTheme]
+  /* eslint-enable react-hooks/rules-of-hooks */
+}
+
+export function Nav({
+  t,
+}: {
+  t: typeof translations.pl
+}) {
+  const [theme, setTheme] = useTheme()
+  const [activeSection, setActiveSection] = useState<Sections>("about")
+
 
   useEffect(() => {
     const options = {
