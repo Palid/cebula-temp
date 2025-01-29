@@ -80,7 +80,7 @@ export function Nav({
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <a href="#" className="text-xl font-bold tracking-tighter hover:text-primary transition-colors">
-            CEBULACAMP
+            {t.siteTitle}
           </a>
           <div className="flex items-center">
             {/* Desktop Navigation */}
@@ -89,12 +89,14 @@ export function Nav({
                 <a
                   key={value}
                   href={`#${value}`}
-                  className={cn("text-sm hover:text-primary transition-colors relative group", {
+                  className={cn("text-sm md:text-md hover:text-primary transition-colors relative group", {
                     'text-primary': activeSection === value
                   })}
                 >
                   {t.nav[value]}
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform" />
+                  <span className={cn("absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform", {
+                    'scale-x-100': activeSection === value
+                  })} />
                 </a>
               ))}
             </div>
@@ -111,7 +113,7 @@ export function Nav({
 
             {/* Mobile Navigation */}
             <div className="md:hidden ml-2">
-              <MobileNav t={t} linksOrder={linksOrder} />
+              <MobileNav t={t} linksOrder={linksOrder} activeSection={activeSection} />
             </div>
           </div>
         </div>
