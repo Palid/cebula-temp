@@ -40,9 +40,9 @@ export default function Home() {
             </video>
           </div>
           <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
-            <div className="text-center">
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 light:text-background">{t.hero.title}</h1>
-              <p className="text-xl md:text-2xl  text-primary">{t.hero.subtitle}</p>
+            <div className="text-center font-[JGS7]">
+              <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter mb-6 light:text-background">{t.hero.title}</h1>
+              <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl-text:7xl 2xl:text-8xl text-primary">{t.hero.subtitle}</p>
             </div>
           </div>
         </section>
@@ -69,7 +69,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-8 tracking-tighter">{t.when.title}</h2>
             <div className="text-lg text-muted-foreground">
-              <p className="text-primary text-3xl">{t.when.date}</p>
+              <p className="text-primary text-3xl font-[JGS7]">{t.when.date}</p>
               <p className="mt-4">{t.when.extra}</p>
             </div>
           </div>

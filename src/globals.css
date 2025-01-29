@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "JGS7";
+  src: url("/fonts/jgs7.woff2") format("woff2"),
+    url("/fonts/jgs7.woff") format("woff"),
+    url("/fonts/jgs7.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 html {
   @media (prefers-reduced-motion: no-preference) {
     scroll-behavior: smooth;
@@ -72,9 +81,7 @@ html {
     --input: hsl(0 0% 14.9%);
     --ring: hsl(0 0% 83.1%);
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
@@ -88,4 +95,8 @@ html {
 
 .parallax-video {
   transition: transform 0.25s ease-out;
+}
+
+.jgs7 {
+  font-family: "JGS7" !important;
 }
