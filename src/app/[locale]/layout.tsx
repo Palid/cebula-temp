@@ -13,7 +13,7 @@ export default async function RootLayout({
   params
 }: {
   children: React.ReactNode
-  params: { locale: Lang }
+  params: Promise<{ locale: Lang }>
 }) {
   const { locale } = await params
   const currentLang = locales.includes(locale) ? locale : "en"
