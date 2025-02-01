@@ -1,11 +1,12 @@
 const common = {
-  jgs7: "JGS7",
+  jgs7: "JGS font Jgs font by Adel Faure. Distributed by velvetyne.fr",
   oxanium: "Oxanium",
 };
 
 const pl = {
   siteTitle: "CEBULACAMP",
   nav: {
+    hero: "Cebula",
     about: "O nas",
     when: "Kiedy",
     where: "Gdzie",
@@ -35,7 +36,7 @@ const pl = {
     title: "Kiedy",
     date: "28-31.08.2025",
     extra:
-      "chętnych do pomocy w przygotowaniach zapraszamy już na *Day 0* 27 sierpnia",
+      "chętnych do pomocy w przygotowaniach zapraszamy już na Day 0, 27 sierpnia",
   },
   tickets: {
     title: "Bilety",
@@ -60,7 +61,6 @@ const pl = {
     usedFonts: "Użyte fonty:",
     oxanium: common.oxanium,
     jgs7: common.jgs7,
-    jgs7RemovedGlyphs: "z usuniętymi znakami",
   },
 };
 
@@ -74,5 +74,7 @@ export const translations: {
   // @ts-expect-error This should fail so far, remove me when translations are properly added to "en" object.
   en: en,
 };
+
+export type Translations = typeof pl;
 
 export type Sections = keyof (typeof pl)["nav"];

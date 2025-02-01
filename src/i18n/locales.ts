@@ -2,3 +2,9 @@
 export const locales = ["en", "pl"] as const;
 
 export type Lang = (typeof locales)[number];
+
+export function getLocale(lang: Lang): Lang {
+  return locales.includes(lang as Lang) ? lang : "en";
+}
+
+export const defaultLocale = locales[0];

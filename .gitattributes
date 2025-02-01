@@ -1,0 +1,2 @@
+public/videos/** filter=lfs diff=lfs merge=lfs -text
+source-videos/** filter=lfs diff=lfs merge=lfs -text
