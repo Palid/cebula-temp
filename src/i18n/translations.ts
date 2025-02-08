@@ -16,7 +16,7 @@ const pl = {
     accommodation: "Nocleg",
   },
   mobileNav: {
-    toggleMenu: "Aktywnuj menu",
+    toggleMenu: "Aktywuj menu",
     menu: "Menu",
   },
   hero: {
@@ -64,14 +64,73 @@ const pl = {
   },
 };
 
-const en = {};
+const en = {
+  siteTitle: "CEBULACAMP",
+  nav: {
+    hero: "Onion",
+    about: "About us",
+    when: "When",
+    where: "Where",
+    food: "Food",
+    contact: "Contact",
+    tickets: "Tickets",
+    accommodation: "Accomodation",
+  },
+  mobileNav: {
+    toggleMenu: "Toggle menu",
+    menu: "Menu",
+  },
+  hero: {
+    title: "CEBULACAMP 2025",
+    subtitle: "REACTIVATED",
+  },
+  about: {
+    title: "About us",
+    description:
+      "A gathering of hackers, open source enthusiasts, and free spirits. Organized by hackers for hackers. There will be mate, there will be utopia, there will be chill vibes.\n\nExpect interesting presentations, weird art installations, and lots of discussions. You can talk about your project, demonstrate your constructed toys, or create something together during the event.",
+  },
+  where: {
+    title: "Where",
+    location:
+      "Łącznik club, Tramwajowa 1-3, Wrocław, next to Hackerspace Wrocław",
+  },
+  when: {
+    title: "When",
+    date: "28-31.08.2025",
+    extra:
+      "those willing to help with preparations are welcome to join on Day 0, August 27",
+  },
+  tickets: {
+    title: "Tickets",
+    status: "soon",
+  },
+  accommodation: {
+    title: "Accommodation",
+    description:
+      "in the true camp spirit, we're preparing a fenced area for pitching tents with toilets and shower facilities. The number of tent spots is limited, first-come-first-served basis. There's also the possibility of arranging your own accommodation in a nearby hotel or student dormitories.",
+  },
+  food: {
+    title: "Food",
+    description:
+      "self-catering, there are restaurants with delivery in the area, and we plan to enhance the evenings with communal barbecues.",
+  },
+  contact: {
+    title: "Contact",
+    email: "contact@cebula.camp",
+  },
+  credits: {
+    title: "Credits",
+    usedFonts: "Used fonts:",
+    oxanium: common.oxanium,
+    jgs7: common.jgs7,
+  },
+};
 
 export const translations: {
   en: typeof pl;
   pl: typeof pl;
 } = {
   pl: pl,
-  // @ts-expect-error This should fail so far, remove me when translations are properly added to "en" object.
   en: en,
 };
 
