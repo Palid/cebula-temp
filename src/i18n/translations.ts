@@ -30,13 +30,13 @@ const pl = {
   },
   where: {
     title: "Gdzie",
-    location: "klub Łącznik, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
+    location: "Klub Łącznik, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
   },
   when: {
     title: "Kiedy",
     date: "28-31.08.2025",
     extra:
-      "chętnych do pomocy w przygotowaniach zapraszamy już na Day 0, 27 sierpnia",
+      "Chętnych do pomocy w przygotowaniach zapraszamy już na Day 0, 27 sierpnia",
   },
   tickets: {
     title: "Bilety",
@@ -45,12 +45,12 @@ const pl = {
   accommodation: {
     title: "Nocleg",
     description:
-      "w duchu prawdziwego campu przygotowujemy ogrodzone miejsce do rozbicia namiotu z toaletami i prysznicem. Ilość miejsc namiotowych ograniczona, obowiązuje kolejność rezerwacji. Jest także możliwość zakwaterowania we własnym zakresie w pobliskim hotelu lub akademikach.",
+      "W duchu prawdziwego campu przygotowujemy ogrodzone miejsce do rozbicia namiotu z toaletami i prysznicem. Ilość miejsc namiotowych ograniczona, obowiązuje kolejność rezerwacji. Jest także możliwość zakwaterowania we własnym zakresie w pobliskim hotelu lub akademikach.",
   },
   food: {
     title: "Wyżywienie",
     description:
-      "we własnym zakresie, w okolicy dostępne są knajpy z dowozem, wieczory planujemy umilić wspólnym grillowaniem.",
+      "We własnym zakresie, w okolicy dostępne są knajpy z dowozem, wieczory planujemy umilić wspólnym grillowaniem.",
   },
   contact: {
     title: "Kontakt",
@@ -98,7 +98,7 @@ const en = {
     title: "When",
     date: "28-31.08.2025",
     extra:
-      "those willing to help with preparations are welcome to join on Day 0, August 27",
+      "Those willing to help with preparations are welcome to join on Day 0, August 27",
   },
   tickets: {
     title: "Tickets",
@@ -107,12 +107,12 @@ const en = {
   accommodation: {
     title: "Accommodation",
     description:
-      "in the true camp spirit, we're preparing a fenced area for pitching tents with toilets and shower facilities. The number of tent spots is limited, first-come-first-served basis. There's also the possibility of arranging your own accommodation in a nearby hotel or student dormitories.",
+      "In the true camp spirit, we're preparing a fenced area for pitching tents with toilets and shower facilities. The number of tent spots is limited, first-come-first-served basis. There's also the possibility of arranging your own accommodation in a nearby hotel or student dormitories.",
   },
   food: {
     title: "Food",
     description:
-      "self-catering, there are restaurants with delivery in the area, and we plan to enhance the evenings with communal barbecues.",
+      "Self-catering, there are restaurants with delivery in the area, and we plan to enhance the evenings with communal barbecues.",
   },
   contact: {
     title: "Contact",
