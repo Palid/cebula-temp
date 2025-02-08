@@ -116,7 +116,7 @@ function Video({ sourceBase, hidden }: {
       playsInline
       webkit-playsinline="true"
       x5-playsinline="true"
-      className={cn("w-full h-full object-cover parallax-video", {
+      className={cn("w-full h-full object-contain parallax-video", {
         hidden,
       })}
     >
