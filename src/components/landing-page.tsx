@@ -1,19 +1,26 @@
 "use client"
 
+import dynamic from 'next/dynamic';
+
+
+
 import { Nav } from "@/components/nav";
 import { Translations } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
 import { ReactElement, useEffect, useRef } from "react";
 import { useTheme } from "./providers";
+import { Skeleton } from './ui/skeleton';
 
 function Section({
   id,
   title,
-  paragraphs
+  paragraphs,
+  after
 }: {
   id: string
   title: string;
   paragraphs: ReactElement;
+  after?: ReactElement;
 }) {
   return (<section id={id} className="bg-background">
     <div className="container mx-auto px-4">
@@ -21,6 +28,7 @@ function Section({
       <div className="text-lg text-muted-foreground max-w-3xl mx-auto whitespace-pre-line">
         {paragraphs}
       </div>
+      {after}
     </div>
   </section>)
 }
@@ -125,6 +133,12 @@ function Video({ sourceBase, hidden }: {
   );
 }
 
+
+const LazyLeafletMap = dynamic(() => import('./event-map.lazy'), {
+  ssr: false,
+  loading: () => <Skeleton className="mt-8 h-[368px] w-full" />
+})
+
 export default function LandingPage(
   { t }: { t: Translations }
 ) {
@@ -134,7 +148,7 @@ export default function LandingPage(
   return (
     <div>
       <Nav t={t} />
-      <main className="flex flex-col min-h-screen gap-16 pb-12">
+      <main className="flex flex-col min-h-screen grid-gap-10 gap-10 pb-12">
 
         <section id="hero" className="h-screen relative overflow-hidden dark:bg-black light:bg-white ">
           <div className="absolute inset-0 opacity-80">
@@ -151,7 +165,8 @@ export default function LandingPage(
         </section>
 
         <Section id="about" title={t.about.title} paragraphs={<p>{t.about.description}</p>} />
-        <Section id="where" title={t.where.title} paragraphs={<p>{t.where.location}</p>} />
+        <Section id="where" title={t.where.title} paragraphs={<p>{t.where.location}</p>} after={<LazyLeafletMap t={t} />} />
+
         <Section id="when" title={t.when.title} paragraphs={<>
           <p className="text-primary text-3xl font-[JGS7]">{t.when.date}</p>
           <p className="mt-4">{t.when.extra}</p></>}

@@ -162,3 +162,8 @@
 .jgs7 {
   font-family: "JGS7" !important;
 }
+
+/* Fix for leaflet's weird z-index */
+.z-max {
+  z-index: 10000;
+}
