@@ -37,14 +37,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Deploying on prod
 
-No CI yet, build and push locally:
+Once merged to main (go through a PR!) changes will autodeploy within 5 minutes.
 
-    docker build -t git.orga.cebula.camp/infra/site:golden .
-    docker push git.orga.cebula.camp/infra/site:golden
-
-No autodeploy yet, ping q3k when done.
-
-To get access to the container registry, add an [access
-token](https://git.orga.cebula.camp/user/settings/applications) with read/write
-permissions to `package`. Then `docker login git.orga.cebula.camp` and use your
-username and the token as the password.
+See [infra/nixos/autodeploy](https://git.orga.cebula.camp/infra/nixos/src/branch/master/autodeploy) to discover how the sausage is made.
