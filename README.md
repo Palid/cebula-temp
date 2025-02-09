@@ -34,3 +34,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Deploying on prod
+
+No CI yet, build and push locally:
+
+    docker build -t git.orga.cebula.camp/infra/site:golden .
+    docker push git.orga.cebula.camp/infra/site:golden
+
+No autodeploy yet, ping q3k when done.
+
+To get access to the container registry, add an [access
+token](https://git.orga.cebula.camp/user/settings/applications) with read/write
+permissions to `package`. Then `docker login git.orga.cebula.camp` and use your
+username and the token as the password.
