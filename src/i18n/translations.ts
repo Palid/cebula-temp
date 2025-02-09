@@ -31,7 +31,8 @@ const pl = {
   },
   where: {
     title: "Gdzie",
-    location: "Klub „Łącznik”, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
+    location:
+      "Klub „Łącznik”, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
   },
   when: {
     title: "Kiedy",
@@ -55,7 +56,7 @@ const pl = {
   },
   contact: {
     title: "Kontakt",
-    email: "contact@cebula.camp",
+    email: "orga@cebula.camp",
   },
   credits: {
     title: "Uznania",
@@ -118,7 +119,7 @@ const en = {
   },
   contact: {
     title: "Contact",
-    email: "contact@cebula.camp",
+    email: "orga@cebula.camp",
   },
   credits: {
     title: "Credits",
