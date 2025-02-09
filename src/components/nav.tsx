@@ -70,10 +70,7 @@ export function Nav({
           <div className="flex gap-4">
             <LanguageSelector />
             <a href="#" className="text-xl font-bold tracking-tighter hover:text-primary transition-colors">
-
-
-
-              <h1>{t.siteTitle}</h1>
+              <h1>{t.nav.title}</h1>
             </a>
           </div>
           <div className="flex items-center">

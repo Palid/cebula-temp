@@ -4,8 +4,9 @@ const common = {
 };
 
 const pl = {
-  siteTitle: "CEBULACAMP",
+  siteTitle: "CebulaCamp",
   nav: {
+    title: "CEBULACAMP",
     hero: "Cebula",
     about: "O nas",
     when: "Kiedy",
@@ -65,8 +66,9 @@ const pl = {
 };
 
 const en = {
-  siteTitle: "CEBULACAMP",
+  siteTitle: "CebulaCamp 2025",
   nav: {
+    title: "CEBULACAMP",
     hero: "Onion",
     about: "About us",
     when: "When",
