@@ -15,9 +15,9 @@ function Section({
   title: string;
   paragraphs: ReactElement;
 }) {
-  return (<section id={id} className="py-24 bg-background">
+  return (<section id={id} className="bg-background">
     <div className="container mx-auto px-4">
-      <h2 className="text-4xl font-bold mb-8 tracking-tighter max-w-3xl mx-auto">{title}</h2>
+      <h2 className="text-4xl font-bold tracking-tighter max-w-3xl mx-auto mb-2">{title}</h2>
       <div className="text-lg text-muted-foreground max-w-3xl mx-auto whitespace-pre-line">
         {paragraphs}
       </div>
@@ -134,7 +134,7 @@ export default function LandingPage(
   return (
     <div>
       <Nav t={t} />
-      <main className="flex flex-col min-h-screen">
+      <main className="flex flex-col min-h-screen gap-16 pb-12">
 
         <section id="hero" className="h-screen relative overflow-hidden dark:bg-black light:bg-white ">
           <div className="absolute inset-0 opacity-80">
@@ -152,7 +152,7 @@ export default function LandingPage(
 
         <Section id="about" title={t.about.title} paragraphs={<p>{t.about.description}</p>} />
         <Section id="where" title={t.where.title} paragraphs={<p>{t.where.location}</p>} />
-        <Section id="when" title={t.where.title} paragraphs={<>
+        <Section id="when" title={t.when.title} paragraphs={<>
           <p className="text-primary text-3xl font-[JGS7]">{t.when.date}</p>
           <p className="mt-4">{t.when.extra}</p></>}
         />
