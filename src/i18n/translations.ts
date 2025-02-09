@@ -48,12 +48,12 @@ const pl = {
   accommodation: {
     title: "Nocleg",
     description:
-      "W duchu prawdziwego campu przygotowujemy ogrodzone miejsce do rozbicia namiotu z toaletami i prysznicem. Ilość miejsc namiotowych ograniczona, obowiązuje kolejność rezerwacji. Jest także możliwość zakwaterowania we własnym zakresie w pobliskim hotelu lub akademikach.",
+      "We własnym zakresie - jest możliwość zakwaterowania się w pobliskich hotelach lub akademikach. Planujemy przygotowanie pola namiotowego przed lokalem, ale jeszcze nie jest to gwarantowane i miejsca są ograniczone.",
   },
   food: {
     title: "Wyżywienie",
     description:
-      "We własnym zakresie, w okolicy dostępne są knajpy z dowozem, wieczory planujemy umilić wspólnym grillowaniem.",
+      "We własnym zakresie, w okolicy dostępne są sklepy oraz knajpy z dowozem. Wieczory planujemy umilić wspólnym grillowaniem.",
   },
   contact: {
     title: "Kontakt",
@@ -111,12 +111,12 @@ const en = {
   accommodation: {
     title: "Accommodation",
     description:
-      "In the true camp spirit, we're preparing a fenced area for pitching tents with toilets and shower facilities. The number of tent spots is limited, first-come-first-served basis. There's also the possibility of arranging your own accommodation in a nearby hotel or student dormitories.",
+      "Please arrange your own accommodation in a nearby hotel or student dormitories. We might be able to prepare a camping space in front of the venue, but that's not guaranteed yet, and spots will be limited.",
   },
   food: {
     title: "Food",
     description:
-      "Self-catering, there are restaurants with delivery in the area, and we plan to enhance the evenings with communal barbecues.",
+      "DIY. There are shops nearby and restaurants with takeaway/delivery. We plan to have some communal barbecues in the evenings.",
   },
   contact: {
     title: "Contact",
