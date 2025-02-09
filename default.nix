@@ -5,23 +5,11 @@ in pkgs.buildNpmPackage {
     version = package-json.version;
     src = ./.;
 
-    patches = [ ./build-with-nix.patch ];
-
-    preBuild = ''
-      cp "${
-        pkgs.google-fonts.override { fonts = [ "Oxanium" ]; }
-      }/share/fonts/truetype/Oxanium[wght].ttf" src/app/\[locale\]/Oxanium.ttf
-    '';
-
     npmDeps = pkgs.importNpmLock {
       npmRoot = ./.;
     };
 
     npmConfigHook = pkgs.importNpmLock.npmConfigHook;
-
-    nativeBuildInputs = with pkgs; [
-      keepBuildTree
-    ];
 
     installPhase = ''
       cp -r public $out/

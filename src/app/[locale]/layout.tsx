@@ -7,9 +7,9 @@ import Head from 'next/head';
 
 import { ThemeProvider } from "@/components/providers";
 import { translations } from "@/i18n/translations";
-import { Oxanium } from "next/font/google";
+import localFont from "next/font/local";
 import { headers } from "next/headers";
-const oxanium = Oxanium({ subsets: ["latin-ext"] })
+const oxanium = localFont({ src: './Oxanium.ttf' })
 
 import type { Metadata } from 'next';
 
