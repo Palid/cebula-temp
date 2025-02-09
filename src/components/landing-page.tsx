@@ -66,7 +66,7 @@ function getSource({
     <source
       key={`twok-${type}`}
       media="(max-width: 2560px)"
-      src={src.replace('.mp4', `_2k.${type}`)}
+      src={src.replace('.mp4', `_twok.${type}`)}
       type={sourceType}
     />,
 
