@@ -1,0 +1,38 @@
+{ pkgs ? import <nixpkgs> {}, ... }: let
+    package-json = (builtins.fromJSON (builtins.readFile ./package.json));
+in pkgs.buildNpmPackage {
+    pname = package-json.name;
+    version = package-json.version;
+    src = ./.;
+
+    patches = [ ./build-with-nix.patch ];
+
+    preBuild = ''
+      cp "${
+        pkgs.google-fonts.override { fonts = [ "Oxanium" ]; }
+      }/share/fonts/truetype/Oxanium[wght].ttf" src/app/\[locale\]/Oxanium.ttf
+    '';
+
+    npmDeps = pkgs.importNpmLock {
+      npmRoot = ./.;
+    };
+
+    npmConfigHook = pkgs.importNpmLock.npmConfigHook;
+
+    nativeBuildInputs = with pkgs; [
+      keepBuildTree
+    ];
+
+    installPhase = ''
+      cp -r public $out/
+      mkdir $out/.next
+      cp -r .next/standalone/{.*,*} $out/
+      cp -r .next/static $out/.next
+      mkdir $out/bin
+      echo "#! /usr/bin/env bash" > $out/bin/cebula-site
+      echo 'SOURCE=''${BASH_SOURCE[0]}' >> $out/bin/cebula-site
+      echo 'cd $(dirname $SOURCE)/..' >> $out/bin/cebula-site
+      echo 'exec ${pkgs.nodejs}/bin/node server.js' >> $out/bin/cebula-site
+      chmod +x $out/bin/cebula-site
+    '';
+}
