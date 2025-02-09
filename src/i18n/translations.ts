@@ -5,7 +5,7 @@ const common = {
 };
 
 const pl = {
-  siteTitle: "CebulaCamp",
+  siteTitle: "CebulaCamp 2025",
   nav: {
     title: "CEBULACAMP",
     hero: "Cebula",

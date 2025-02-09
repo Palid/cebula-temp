@@ -29,7 +29,7 @@ export async function generateMetadata(
   const t = translations[currentLang];
 
   return {
-    title: "CebulaCamp",
+    title: t.siteTitle,
     description: "An amazing gathering of hackers and open source enthusiasts.",
     icons: {
       icon: [
@@ -60,7 +60,7 @@ export async function generateMetadata(
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'CebulaCamp',
+      title: t.siteTitle,
       description: 'An amazing gathering of hackers and open source enthusiasts.',
       images: ['https://cebula.camp/web-app-manifest-512x512.png'],
     },
@@ -99,7 +99,7 @@ export default async function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="CebulaCamp" />
+        <meta name="apple-mobile-web-app-title" content="{t.siteTitle}" />
         <link rel="manifest" href="/site.webmanifest" />
 
       </Head>
