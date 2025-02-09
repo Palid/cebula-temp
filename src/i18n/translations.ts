@@ -27,11 +27,11 @@ const pl = {
   about: {
     title: "O nas",
     description:
-      "Zjazd hakerów, miłośników open source, wolnych duchów. Organizowany przez hakerów dla hakerów. Będzie mate, będzie utopia, będzie chillera.\n\nSpodziewaj się ciekawych prezentacji, dziwnych instalacji artystycznych i mnóstwa dyskusji. Możesz opowiedzieć o swoim projekcie, zademonstrować skonstruowane zabawki, albo wspólnie coś stworzyć podczas eventu.",
+      "Zjazd hakerów, miłośników open source, wolnych duchów. Organizowany przez hakerów dla hakerów. Będzie mate, będzie utopia, będzie chillera.\n\nReaktywacja wydarzenia po długiej przerwie od ostatniej edycji w 2021. Tym razem widzimy się we Wrocławiu, w budynku starej zajezdni tramwajowej który zamienimy na łączone hackcenter i salę prelekcyjną.\n\nSpodziewaj się ciekawych prezentacji, dziwnych instalacji artystycznych i mnóstwa dyskusji. Możesz opowiedzieć o swoim projekcie, zademonstrować skonstruowane zabawki, albo wspólnie coś stworzyć podczas eventu.",
   },
   where: {
     title: "Gdzie",
-    location: "Klub Łącznik, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
+    location: "Klub „Łącznik”, Tramwajowa 1-3, Wrocław, obok Hackerspace Wrocław",
   },
   when: {
     title: "Kiedy",
@@ -89,12 +89,12 @@ const en = {
   about: {
     title: "About us",
     description:
-      "A gathering of hackers, open source enthusiasts, and free spirits. Organized by hackers for hackers. There will be mate, there will be utopia, there will be chill vibes.\n\nExpect interesting presentations, weird art installations, and lots of discussions. You can talk about your project, demonstrate your constructed toys, or create something together during the event.",
+      "A gathering of hackers, open source enthusiasts, and free spirits. Organized by hackers for hackers. An utopia of mate and chill vibes.\n\nFirst event since a long pause that started on 2021. This year we'll see eachother in Wrocław, in an old tram depot building which we'll turn into a combined hack center and talk stage.\n\nExpect interesting presentations, weird art installations, and lots of discussions. Talk about your project, show off the stuff you've built, or work on something together during the event.",
   },
   where: {
     title: "Where",
     location:
-      "Łącznik club, Tramwajowa 1-3, Wrocław, next to Hackerspace Wrocław",
+      "“Łącznik” Club, Tramwajowa 1-3, Wrocław, next to Hackerspace Wrocław",
   },
   when: {
     title: "When",
