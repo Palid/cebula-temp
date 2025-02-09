@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import type { Sections, translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { Menu } from "lucide-react"
+import { LanguageSelector } from "./ui/language-selector"
 
 export function MobileNav({
   t,
@@ -35,6 +36,7 @@ export function MobileNav({
               {t.nav[value]}
             </a>
           ))}
+          <LanguageSelector />
         </nav>
       </SheetContent>
     </Sheet>
