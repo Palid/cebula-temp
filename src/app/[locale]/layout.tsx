@@ -16,7 +16,6 @@ import type { Metadata } from 'next';
 
 type Props = {
   params: Promise<{ locale: Lang }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
 export async function generateMetadata(
