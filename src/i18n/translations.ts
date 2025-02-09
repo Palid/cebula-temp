@@ -43,7 +43,7 @@ const pl = {
   },
   tickets: {
     title: "Bilety",
-    status: "soon",
+    status: "Soon ™",
   },
   accommodation: {
     title: "Nocleg",
