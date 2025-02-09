@@ -174,7 +174,7 @@ export default function LandingPage(
         <Section id="tickets" title={t.tickets.title} paragraphs={<p>{t.tickets.status}</p>} />
         <Section id="accommodation" title={t.accommodation.title} paragraphs={<p>{t.accommodation.description}</p>} />
         <Section id="food" title={t.food.title} paragraphs={<p>{t.food.description}</p>} />
-        <Section id="contact" title={t.contact.title} paragraphs={<p>{t.contact.email}</p>} />
+        <Section id="contact" title={t.contact.title} paragraphs={<a href={`mailto:${t.contact.email}`}>{t.contact.email}</a>} />
         <Section id="credits" title={t.credits.title} paragraphs={<>
           <p>{t.credits.usedFonts}</p>
           <p><a className="hover:underline" href="https://velvetyne.fr/fonts/jgs-font/">{t.credits.jgs7}</a></p>

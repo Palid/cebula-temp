@@ -1,6 +1,7 @@
 const common = {
   jgs7: "JGS font Jgs font by Adel Faure. Distributed by velvetyne.fr",
   oxanium: "Oxanium",
+  orgaEmail: "orga@cebula.camp",
 };
 
 const pl = {
@@ -56,7 +57,7 @@ const pl = {
   },
   contact: {
     title: "Kontakt",
-    email: "orga@cebula.camp",
+    email: common.orgaEmail,
   },
   credits: {
     title: "Uznania",
@@ -119,7 +120,7 @@ const en = {
   },
   contact: {
     title: "Contact",
-    email: "orga@cebula.camp",
+    email: common.orgaEmail,
   },
   credits: {
     title: "Credits",
