@@ -12,8 +12,8 @@ in pkgs.buildNpmPackage {
     npmConfigHook = pkgs.importNpmLock.npmConfigHook;
 
     installPhase = ''
+      mkdir -p $out/.next
       cp -r public $out/
-      mkdir $out/.next
       cp -r .next/standalone/{.*,*} $out/
       cp -r .next/static $out/.next
       mkdir $out/bin
