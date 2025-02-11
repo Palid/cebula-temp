@@ -8,6 +8,7 @@ import { Nav } from "@/components/nav";
 import { Translations } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
 import { ReactElement, useEffect, useRef } from "react";
+import { NewsletterPopup } from './newsletter-form';
 import { useTheme } from "./providers";
 import { Skeleton } from './ui/skeleton';
 
@@ -160,6 +161,7 @@ export default function LandingPage(
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter light:text-background">{t.hero.title}</h1>
               <p className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl-text:7xl 2xl:text-8xl text-primary">{t.hero.subtitle}</p>
               <p className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl-text:7xl 2xl:text-8xl text-primary ">{t.when.date}</p>
+              <NewsletterPopup t={t} />
             </div>
           </div>
         </section>

@@ -7,11 +7,10 @@ import Head from 'next/head';
 
 import { ThemeProvider } from "@/components/providers";
 import { translations } from "@/i18n/translations";
-import localFont from "next/font/local";
-import { headers } from "next/headers";
-const oxanium = localFont({ src: './Oxanium.ttf' })
 
+import { oxanium } from "@/fonts";
 import type { Metadata } from 'next';
+import { headers } from "next/headers";
 
 
 type Props = {

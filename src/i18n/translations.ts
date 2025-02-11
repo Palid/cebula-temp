@@ -65,6 +65,20 @@ const pl = {
     oxanium: common.oxanium,
     jgs7: common.jgs7,
   },
+
+  newsletter: {
+    emailField: "E-mail",
+    nameField: "Imię/ksywa (opcjonalne)",
+    popupButton: "Zapisz się do newslettera",
+    title: "Newsletter CebulaCamp 2025",
+    description: "Zasubskrybuj aby otrzymywać najnowsze wiadomości",
+    subscribeButton: "Subskrybuj",
+    submitSuccess: "Dziękujemy za subskrypcję!",
+    submitPending: "Subskrybuję...",
+    policyPrivacyCheckboxTitle: "Akceptuję politykę prywatności",
+    policyPrivacyCheckboxDescription:
+      "Zgadzam się na przetwarzanie przekazanych danych osobowych przez Hackerspace Wrocław w ramach otrzymywania wiadomości na temat wydarzenia.",
+  },
 };
 
 const en = {
@@ -127,6 +141,20 @@ const en = {
     usedFonts: "Used fonts:",
     oxanium: common.oxanium,
     jgs7: common.jgs7,
+  },
+
+  newsletter: {
+    emailField: "E-mail",
+    nameField: "Name/nickname (optional)",
+    popupButton: "Subscribe to newsletter",
+    title: "Newsletter CebulaCamp 2025",
+    description: "Subscribe for live news",
+    subscribeButton: "Subscribe",
+    submitSuccess: "Thank you for subscribing!",
+    submitPending: "Subscribing...",
+    policyPrivacyCheckboxTitle: "I accept the privacy policy",
+    policyPrivacyCheckboxDescription:
+      "I agree to the processing of the provided personal data by Hackerspace Wrocław for the purpose of receiving information about the event.",
   },
 };
 
