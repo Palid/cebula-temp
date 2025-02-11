@@ -167,6 +167,7 @@ export default function LandingPage(
           </div>
         </section>
 
+
         <Section id="about" title={t.about.title} paragraphs={<p>{t.about.description}</p>} />
         <Section id="where" title={t.where.title} paragraphs={<p>{t.where.location}</p>} after={<LazyLeafletMap t={t} />} />
 
