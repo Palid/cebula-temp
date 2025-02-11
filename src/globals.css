@@ -65,15 +65,6 @@
 }
 
 @layer utilities {
-  @font-face {
-    font-family: "JGS7";
-    src: url("/fonts/jgs7.woff2") format("woff2"),
-      url("/fonts/jgs7.woff") format("woff"),
-      url("/fonts/jgs7.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-
   html {
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
@@ -157,10 +148,6 @@
 
 .parallax-video {
   transition: transform 0.25s ease-out;
-}
-
-.jgs7 {
-  font-family: "JGS7" !important;
 }
 
 /* Fix for leaflet's weird z-index */

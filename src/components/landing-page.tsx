@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 
 
 import { Nav } from "@/components/nav";
+import { jgs7 } from '@/fonts';
 import { Translations } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
 import { ReactElement, useEffect, useRef } from "react";
@@ -157,7 +158,7 @@ export default function LandingPage(
             <Video sourceBase="/videos/ceboola_gradient-white.mp4" hidden={theme === "dark"} />
           </div>
           <div className="relative z-10 container mx-auto px-4 h-full flex items-center justify-center">
-            <div className="text-center font-[JGS7]">
+            <div className={`text-center ${jgs7.className}`}>
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter light:text-background">{t.hero.title}</h1>
               <p className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl-text:7xl 2xl:text-8xl text-primary">{t.hero.subtitle}</p>
               <p className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl-text:7xl 2xl:text-8xl text-primary ">{t.when.date}</p>
@@ -170,7 +171,7 @@ export default function LandingPage(
         <Section id="where" title={t.where.title} paragraphs={<p>{t.where.location}</p>} after={<LazyLeafletMap t={t} />} />
 
         <Section id="when" title={t.when.title} paragraphs={<>
-          <p className="text-primary text-3xl font-[JGS7]">{t.when.date}</p>
+          <p className={`text-primary text-3xl ${jgs7.className}`}>{t.when.date}</p>
           <p className="mt-4">{t.when.extra}</p></>}
         />
         <Section id="tickets" title={t.tickets.title} paragraphs={<p>{t.tickets.status}</p>} />
