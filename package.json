@@ -6,11 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "translations:extract": "lingui extract-template",
-    "translations:compile": "lingui compile",
-    "translations:sync": "lingui extract --overwrite && lingui compile",
-    "translations:sync_and_purge": "lingui extract --overwrite --clean && lingui compile"
+    "lint": "next lint"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.10",
