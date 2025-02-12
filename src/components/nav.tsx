@@ -25,7 +25,7 @@ export function Nav({
   t: typeof translations.pl
 }) {
   const { theme, setTheme } = useTheme()
-  const [activeSection, setActiveSection] = useState<Sections>("about")
+  const [activeSection] = useState<Sections>("about")
 
 
   useEffect(() => {
@@ -44,8 +44,8 @@ export function Nav({
       entries.forEach(entry => {
         const target = entry.target.id as keyof (typeof translations.pl)["nav"]
         if (entry.isIntersecting) {
-          setActiveSection(target);
-          if (window.location.hash !== `#${target}` && history.replaceState) {
+          // setActiveSection(target);
+          if (history.replaceState) {
             timeout = setTimeout(() => {
               history.replaceState(null, "", `#${target}`)
             }, 150)
