@@ -80,9 +80,9 @@ function getSource({
     />,
 
     <source
-      key={`original-${type}`}
+      key={`full-${type}`}
       media="(min-width: 3841px)"
-      src={src.replace('.mp4', `_original.${type}`)}
+      src={src.replace('.mp4', `_full.${type}`)}
       type={sourceType}
     />,
   ];
@@ -95,6 +95,8 @@ function Video({ sourceBase, hidden }: {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    if (!videoRef.current || hidden) return;
+    console.log('effect running running and running running')
     const handleScroll = () => {
       if (!videoRef.current || hidden) return;
 
@@ -106,7 +108,7 @@ function Video({ sourceBase, hidden }: {
     };
 
     const throttledHandleScroll = () => {
-      requestAnimationFrame(handleScroll);
+      // requestAnimationFrame(handleScroll);
     };
 
     window.addEventListener("scroll", throttledHandleScroll);
