@@ -96,7 +96,6 @@ function Video({ sourceBase, hidden }: {
 
   useEffect(() => {
     if (!videoRef.current || hidden) return;
-    console.log('effect running running and running running')
     const handleScroll = () => {
       if (!videoRef.current || hidden) return;
 
@@ -108,7 +107,7 @@ function Video({ sourceBase, hidden }: {
     };
 
     const throttledHandleScroll = () => {
-      // requestAnimationFrame(handleScroll);
+      requestAnimationFrame(handleScroll);
     };
 
     window.addEventListener("scroll", throttledHandleScroll);
