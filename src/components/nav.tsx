@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Sections, type translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { MoonIcon, SunIcon } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useDeferredValue, useEffect, useState } from "react"
 import { MobileNav } from "./mobile-nav"
 import { useTheme } from "./providers"
 import { LanguageSelector } from "./ui/language-selector"
@@ -26,6 +26,7 @@ export function Nav({
 }) {
   const { theme, setTheme } = useTheme()
   const [activeSection, setActiveSection] = useState<Sections>("about")
+  const deferedActiveSection = useDeferredValue(activeSection)
 
 
   useEffect(() => {
@@ -89,12 +90,12 @@ export function Nav({
                   key={value}
                   href={`#${value}`}
                   className={cn("text-sm md:text-md hover:text-primary transition-colors relative group", {
-                    'text-primary': activeSection === value
+                    'text-primary': deferedActiveSection === value
                   })}
                 >
                   {t.nav[value]}
                   <span className={cn("absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform", {
-                    'scale-x-100': activeSection === value
+                    'scale-x-100': deferedActiveSection === value
                   })} />
                 </a>
               ))}
@@ -113,7 +114,7 @@ export function Nav({
 
             {/* Mobile Navigation */}
             <div className="md:hidden ml-2">
-              <MobileNav t={t} linksOrder={linksOrder} activeSection={activeSection} />
+              <MobileNav t={t} linksOrder={linksOrder} activeSection={deferedActiveSection} />
             </div>
           </div>
         </div>
