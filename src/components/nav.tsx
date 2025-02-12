@@ -44,8 +44,8 @@ export function Nav({
       entries.forEach(entry => {
         const target = entry.target.id as keyof (typeof translations.pl)["nav"]
         if (entry.isIntersecting) {
-          setActiveSection(target);
-          if (window.location.hash !== `#${target}` && history.replaceState) {
+          // setActiveSection(target);
+          if (history.replaceState) {
             timeout = setTimeout(() => {
               history.replaceState(null, "", `#${target}`)
             }, 150)
