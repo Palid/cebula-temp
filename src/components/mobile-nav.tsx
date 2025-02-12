@@ -3,18 +3,15 @@
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import type { Sections, translations } from "@/i18n/translations"
-import { cn } from "@/lib/utils"
 import { Menu } from "lucide-react"
 import { LanguageSelector } from "./ui/language-selector"
 
 export function MobileNav({
   t,
   linksOrder,
-  activeSection
 }: {
   t: typeof translations.pl
   linksOrder: Array<Sections>
-  activeSection: Sections
 }) {
   return (
     <Sheet>
@@ -30,9 +27,7 @@ export function MobileNav({
         </SheetHeader>
         <nav className="flex flex-col gap-4 mt-8">
           {linksOrder.map((value) => (
-            <a key={value} href={`#${value}`} className={cn("text-lg hover:text-primary transition-colors", {
-              'text-primary': activeSection === value
-            })}>
+            <a key={value} href={`#${value}`} className="text-lg hover:text-primary transition-colors">
               {t.nav[value]}
             </a>
           ))}
