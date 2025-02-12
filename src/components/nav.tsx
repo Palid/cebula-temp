@@ -25,7 +25,7 @@ export function Nav({
   t: typeof translations.pl
 }) {
   const { theme, setTheme } = useTheme()
-  const [activeSection, setActiveSection] = useState<Sections>("about")
+  const [activeSection] = useState<Sections>("about")
 
 
   useEffect(() => {
