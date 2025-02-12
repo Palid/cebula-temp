@@ -34,14 +34,21 @@ export function Nav({
       rootMargin: "-10px",
       threshold: 0.5, // Adjust the visibility threshold as needed
     };
+    let timeout: NodeJS.Timeout | null = null;
+
 
     const observer = new IntersectionObserver((entries) => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
       entries.forEach(entry => {
         const target = entry.target.id as keyof (typeof translations.pl)["nav"]
         if (entry.isIntersecting) {
           setActiveSection(target);
-          if (history.replaceState) {
-            history.replaceState(null, "", `#${target}`);
+          if (window.location.hash !== `#${target}` && history.replaceState) {
+            timeout = setTimeout(() => {
+              history.replaceState(null, "", `#${target}`)
+            }, 150)
           }
         }
       });
