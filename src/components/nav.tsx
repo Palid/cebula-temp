@@ -1,9 +1,10 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { Sections, type translations } from "@/i18n/translations"
+import { useColorSections } from "@/hooks/color-sections"
+import { type translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { MoonIcon, SunIcon } from "lucide-react"
-import { useLayoutEffect, useRef } from "react"
+import { useRef } from "react"
 import { MobileNav } from "./mobile-nav"
 import { useTheme } from "./providers"
 import { LanguageSelector } from "./ui/language-selector"
@@ -25,64 +26,8 @@ export function Nav({
   t: typeof translations.pl
 }) {
   const { theme, setTheme } = useTheme()
-  const previous = useRef<Sections>(linksOrder[0])
-
-
-  useLayoutEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: "-10px",
-      threshold: 0.5, // Adjust the visibility threshold as needed
-    };
-    let timeout: NodeJS.Timeout | null = null;
-
-    const sections = linksOrder.map(value => document.getElementById(value));
-    const subs = linksOrder.reduce((acc, value) => {
-      acc[value] = document.querySelector('[data-sub="' + value + '"]')!;
-      return acc;
-    }, {} as Record<Sections, HTMLAnchorElement>);
-    const links = linksOrder.reduce((acc, value) => {
-      acc[value] = document.querySelector('[href="#' + value + '"]')!;
-      return acc;
-    }, {} as Record<Sections, HTMLAnchorElement>);
-
-
-    const observer = new IntersectionObserver((entries) => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
-      for (const entry of entries) {
-        const target = entry.target.id as keyof (typeof translations.pl)["nav"]
-        if (entry.intersectionRatio > 0) {
-          // FIXME: This seems to be VERY broken on firefox.
-          // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1250972
-          // It basically spikes up CPU usage to some enormous values just to update the hash, like WTF firefox.
-          // if (history.replaceState) {
-          //   timeout = setTimeout(() => {
-          //     history.replaceState(null, "", `#${target}`)
-          //   }, 150)
-          // }
-        }
-        subs[previous.current]?.classList.remove('scale-x-100');
-        links[previous.current]?.classList.remove('text-primary');
-        previous.current = target;
-
-        subs[previous.current]?.classList.add('scale-x-100');
-        links[previous.current]?.classList.add('text-primary');
-        break;
-      }
-    }, options);
-
-    sections.forEach(section => {
-      if (section) {
-        observer.observe(section);
-      }
-    });
-
-    return () => {
-      observer.disconnect()
-    };
-  }, []);
+  const parent = useRef<HTMLDivElement>(null);
+  useColorSections(parent);
 
   return (
     <nav className="fixed top-0 left-0 right-0 backdrop-blur-xs bg-background/40 border-b z-[10000]">
@@ -96,7 +41,7 @@ export function Nav({
           </div>
           <div className="flex items-center">
             {/* Desktop Navigation */}
-            <div className="hidden md:flex md:items-center md:gap-4 lg:gap-8">
+            <div className="hidden md:flex md:items-center md:gap-4 lg:gap-8" ref={parent}>
 
               {linksOrder.map((value) => (
                 <a
