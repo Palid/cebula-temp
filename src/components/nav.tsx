@@ -43,6 +43,7 @@ export function Nav({
       //   clearTimeout(timeout);
       // }
       for (const entry of entries) {
+        console.log(entry)
         // const target = entry.target.id as keyof (typeof translations.pl)["nav"]
         // if (activeSection !== target && entry.intersectionRatio > 0) {
         //   // setActiveSection(target);
