@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Sections, type translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { MoonIcon, SunIcon } from "lucide-react"
-import { useDeferredValue, useEffect, useState } from "react"
+import { useLayoutEffect, useRef } from "react"
 import { MobileNav } from "./mobile-nav"
 import { useTheme } from "./providers"
 import { LanguageSelector } from "./ui/language-selector"
@@ -25,11 +25,10 @@ export function Nav({
   t: typeof translations.pl
 }) {
   const { theme, setTheme } = useTheme()
-  const [activeSection, setActiveSection] = useState<Sections>("about")
-  const deferedActiveSection = useDeferredValue(activeSection)
+  const previous = useRef<Sections>(linksOrder[0])
 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const options = {
       root: null,
       rootMargin: "-10px",
@@ -37,25 +36,43 @@ export function Nav({
     };
     let timeout: NodeJS.Timeout | null = null;
 
+    const sections = linksOrder.map(value => document.getElementById(value));
+    const subs = linksOrder.reduce((acc, value) => {
+      acc[value] = document.querySelector('[data-sub="' + value + '"]')!;
+      return acc;
+    }, {} as Record<Sections, HTMLAnchorElement>);
+    const links = linksOrder.reduce((acc, value) => {
+      acc[value] = document.querySelector('[href="#' + value + '"]')!;
+      return acc;
+    }, {} as Record<Sections, HTMLAnchorElement>);
+
 
     const observer = new IntersectionObserver((entries) => {
       if (timeout) {
         clearTimeout(timeout);
       }
-      entries.forEach(entry => {
+      for (const entry of entries) {
         const target = entry.target.id as keyof (typeof translations.pl)["nav"]
-        if (entry.isIntersecting) {
-          setActiveSection(target);
-          if (window.location.hash !== `#${target}` && history.replaceState) {
-            timeout = setTimeout(() => {
-              history.replaceState(null, "", `#${target}`)
-            }, 150)
-          }
+        if (entry.intersectionRatio > 0) {
+          // FIXME: This seems to be VERY broken on firefox.
+          // See: https://bugzilla.mozilla.org/show_bug.cgi?id=1250972
+          // It basically spikes up CPU usage to some enormous values just to update the hash, like WTF firefox.
+          // if (history.replaceState) {
+          //   timeout = setTimeout(() => {
+          //     history.replaceState(null, "", `#${target}`)
+          //   }, 150)
+          // }
         }
-      });
+        subs[previous.current]?.classList.remove('scale-x-100');
+        links[previous.current]?.classList.remove('text-primary');
+        previous.current = target;
+
+        subs[previous.current]?.classList.add('scale-x-100');
+        links[previous.current]?.classList.add('text-primary');
+        break;
+      }
     }, options);
 
-    const sections = linksOrder.map(value => document.getElementById(value));
     sections.forEach(section => {
       if (section) {
         observer.observe(section);
@@ -63,11 +80,7 @@ export function Nav({
     });
 
     return () => {
-      sections.forEach(section => {
-        if (section) {
-          observer.unobserve(section);
-        }
-      });
+      observer.disconnect()
     };
   }, []);
 
@@ -89,13 +102,10 @@ export function Nav({
                 <a
                   key={value}
                   href={`#${value}`}
-                  className={cn("text-sm md:text-md hover:text-primary transition-colors relative group", {
-                    'text-primary': deferedActiveSection === value
-                  })}
+                  className="text-sm md:text-md hover:text-primary transition-colors relative group will-change-[color]"
                 >
                   {t.nav[value]}
-                  <span className={cn("absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform", {
-                    'scale-x-100': deferedActiveSection === value
+                  <span data-sub={value} className={cn("absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform will-change-transform", {
                   })} />
                 </a>
               ))}
@@ -114,7 +124,7 @@ export function Nav({
 
             {/* Mobile Navigation */}
             <div className="md:hidden ml-2">
-              <MobileNav t={t} linksOrder={linksOrder} activeSection={deferedActiveSection} />
+              <MobileNav t={t} linksOrder={linksOrder} />
             </div>
           </div>
         </div>
