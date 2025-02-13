@@ -1,8 +1,9 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { type translations } from "@/i18n/translations"
+import { Sections, type translations } from "@/i18n/translations"
 import { cn } from "@/lib/utils"
 import { MoonIcon, SunIcon } from "lucide-react"
+import { useDeferredValue, useEffect, useState } from "react"
 import { MobileNav } from "./mobile-nav"
 import { useTheme } from "./providers"
 import { LanguageSelector } from "./ui/language-selector"
@@ -24,52 +25,47 @@ export function Nav({
   t: typeof translations.pl
 }) {
   const { theme, setTheme } = useTheme()
-  const activeSection = 'about'
-  // const [activeSection, setActiveSection] = useState<Sections>("about")
-  // const deferedActiveSection = useDeferredValue(activeSection)
+  const [activeSection, setActiveSection] = useState<Sections>("about")
+  const deferedActiveSection = useDeferredValue(activeSection)
 
 
-  // useEffect(() => {
-  //   const options = {
-  //     root: null,
-  //     rootMargin: "-10px",
-  //     threshold: 0.5, // Adjust the visibility threshold as needed
-  //   };
-  //   let timeout: NodeJS.Timeout | null = null;
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "-10px",
+      threshold: 0.5, // Adjust the visibility threshold as needed
+    };
+    let timeout: NodeJS.Timeout | null = null;
 
 
-  //   const observer = new IntersectionObserver((entries) => {
-  //     if (timeout) {
-  //       clearTimeout(timeout);
-  //     }
-  //     entries.forEach(entry => {
-  //       const target = entry.target.id as keyof (typeof translations.pl)["nav"]
-  //       if (entry.isIntersecting) {
-  //         setActiveSection(target);
-  //         if (window.location.hash !== `#${target}` && history.replaceState) {
-  //           timeout = setTimeout(() => {
-  //             history.replaceState(null, "", `#${target}`)
-  //           }, 150)
-  //         }
-  //       }
-  //     });
-  //   }, options);
+    const observer = new IntersectionObserver((entries) => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+      entries.forEach(entry => {
+        const target = entry.target.id as keyof (typeof translations.pl)["nav"]
+        if (entry.intersectionRatio > 0) {
+          setActiveSection(target);
+          if (window.location.hash !== `#${target}` && history.replaceState) {
+            timeout = setTimeout(() => {
+              history.replaceState(null, "", `#${target}`)
+            }, 150)
+          }
+        }
+      });
+    }, options);
 
-  //   const sections = linksOrder.map(value => document.getElementById(value));
-  //   sections.forEach(section => {
-  //     if (section) {
-  //       observer.observe(section);
-  //     }
-  //   });
+    const sections = linksOrder.map(value => document.getElementById(value));
+    sections.forEach(section => {
+      if (section) {
+        observer.observe(section);
+      }
+    });
 
-  //   return () => {
-  //     sections.forEach(section => {
-  //       if (section) {
-  //         observer.unobserve(section);
-  //       }
-  //     });
-  //   };
-  // }, []);
+    return () => {
+      observer.disconnect()
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 backdrop-blur-xs bg-background/40 border-b z-[10000]">
@@ -90,12 +86,12 @@ export function Nav({
                   key={value}
                   href={`#${value}`}
                   className={cn("text-sm md:text-md hover:text-primary transition-colors relative group will-change-[color]", {
-                    'text-primary': activeSection === value
+                    'text-primary': deferedActiveSection === value
                   })}
                 >
                   {t.nav[value]}
                   <span className={cn("absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform will-change-transform", {
-                    'scale-x-100': activeSection === value
+                    'scale-x-100': deferedActiveSection === value
                   })} />
                 </a>
               ))}
@@ -114,7 +110,7 @@ export function Nav({
 
             {/* Mobile Navigation */}
             <div className="md:hidden ml-2">
-              <MobileNav t={t} linksOrder={linksOrder} activeSection={activeSection} />
+              <MobileNav t={t} linksOrder={linksOrder} activeSection={deferedActiveSection} />
             </div>
           </div>
         </div>
