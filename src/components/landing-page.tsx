@@ -4,11 +4,11 @@ import dynamic from 'next/dynamic';
 
 
 
-import { Nav } from "@/components/nav";
 import { jgs7 } from '@/fonts';
 import { Translations } from "@/i18n/translations";
 import { cn } from "@/lib/utils";
 import { ReactElement, useEffect, useRef } from "react";
+import { MainpageNav } from './nav';
 import { NewsletterPopup } from './newsletter-form';
 import { useTheme } from "./providers";
 import { Skeleton } from './ui/skeleton';
@@ -150,7 +150,7 @@ export default function LandingPage(
 
   return (
     <div>
-      <Nav t={t} />
+      <MainpageNav t={t} />
       <main className="flex flex-col min-h-screen grid-gap-10 gap-10 pb-12">
 
         <section id="hero" className="h-screen relative overflow-hidden dark:bg-black light:bg-white ">
