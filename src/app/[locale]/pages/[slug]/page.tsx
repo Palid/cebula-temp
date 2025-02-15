@@ -9,7 +9,12 @@ export default async function Page({
   const { slug, locale } = await params
   const currentLocale = getLocale(locale)
 
-  console.log(slug, locale)
+  const isReallyProperSlug = /^[a-zA-Z0-9_-]+$/.test(slug)
+
+  if (!isReallyProperSlug) {
+    notFound()
+  }
+
   try {
     const path = `@/pages/${currentLocale}/${slug}.mdx`
     const pagemodule = await import(path)
