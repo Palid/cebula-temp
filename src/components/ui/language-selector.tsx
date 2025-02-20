@@ -7,7 +7,7 @@ import { useParams, usePathname } from "next/navigation";
 
 export const LanguageSelector = () => {
   const params = useParams<{ locale: Lang }>();
-  const pathname = usePathname()
+  const pathname = usePathname() ?? ''
 
   const replacements = {
     'pl': 'en',
