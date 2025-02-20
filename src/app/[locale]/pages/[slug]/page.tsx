@@ -1,34 +1,43 @@
-import { getLocale, Lang } from "@/i18n/locales"
-import { notFound } from "next/navigation"
+import { getLocale, Lang } from "@/i18n/locales";
+import { notFound } from "next/navigation";
 
 export default async function Page({
   params,
 }: {
-  params: Promise<{ slug: string, locale: Lang }>
+  params: Promise<{ slug: string; locale: Lang }>;
 }) {
-  const { slug, locale } = await params
-  const currentLocale = getLocale(locale)
+  const { slug, locale } = await params;
+  const currentLocale = getLocale(locale);
 
-  const isReallyProperSlug = /^[a-zA-Z0-9_-]+$/.test(slug)
+  const isReallyProperSlug = /^[a-zA-Z0-9_-]+$/.test(slug);
 
   if (!isReallyProperSlug) {
-    notFound()
+    notFound();
   }
 
   try {
-    const path = `@/pages/${currentLocale}/${slug}.mdx`
-    const pagemodule = await import(path)
-    const Post = pagemodule.default
+    console.log("Resolving path: ", `@/pages/${currentLocale}/${slug}.mdx`);
+    const pagemodule = await import(`@/pages/${currentLocale}/${slug}.mdx`);
+    const Post = pagemodule.default;
 
-    return <Post />
+    return <Post />;
   } catch (error) {
-    console.log(error)
-    notFound()
+    console.log(error);
+    notFound();
   }
 }
 
 export function generateStaticParams() {
-  return [{ slug: 'privacy' }]
+  return [
+    {
+      locale: "pl",
+      slug: "privacy",
+    },
+    {
+      locale: "en",
+      slug: "privacy",
+    },
+  ];
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;
